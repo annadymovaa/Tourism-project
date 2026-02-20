@@ -2,7 +2,7 @@ from faker import Faker
 from random import randint
 import csv
 
-def generate(i):
+def generate_user(i):
     fake = Faker('ru_RU')
     user = {
         'user_id' : i + 1,
@@ -16,18 +16,19 @@ def generate(i):
     }
     return user
 
-def users_data():
+def users_data(n):
     users = list()
 
-    for i in range(2000):
-        user = generate(i)
+    for i in range(n):
+        user = generate_user(i)
         users.append(user)
     return users
 
-users = users_data()
+def generate_users_table(n):
+    users = users_data(n)
 
-with open('users.csv', 'w', newline='', encoding='utf-8') as file:
-    writer  = csv.DictWriter(file, fieldnames = users[0].keys())
-    writer.writeheader()
-    writer.writerows(users)
+    with open('users.csv', 'w', newline='', encoding='utf-8') as file:
+        writer  = csv.DictWriter(file, fieldnames = users[0].keys())
+        writer.writeheader()
+        writer.writerows(users)
 
