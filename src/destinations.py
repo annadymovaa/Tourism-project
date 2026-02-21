@@ -1,9 +1,10 @@
-import kagglehub
-from kagglehub import KaggleDatasetAdapter
+import pandas as pd
 
-#kagglehub.login()
 
-path = kagglehub.dataset_download("leondesilva1/travel-destinations")
+file_path = 'src/data/travel_destinations.csv'
 
-print("Path to dataset files:", path)
-#/Users/arthopoda/.cache/kagglehub/datasets/leondesilva1/travel-destinations/versions/2
+
+df = pd.read_csv(file_path)
+
+print('1 2 3')
+print(df.head()) 
