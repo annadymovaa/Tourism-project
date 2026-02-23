@@ -2,7 +2,7 @@ from faker import Faker
 from random import randint
 import csv
 
-def generate_user(i):
+def generate_user(i: int) -> dict:
     fake = Faker('ru_RU')
     user = {
         'user_id' : i + 1,
@@ -16,7 +16,7 @@ def generate_user(i):
     }
     return user
 
-def users_data(n):
+def users_data(n: int) -> list:
     users = list()
 
     for i in range(n):
@@ -24,7 +24,7 @@ def users_data(n):
         users.append(user)
     return users
 
-def generate_users_table(n):
+def generate_users_table(n: int) -> None:
     users = users_data(n)
 
     with open('data/users.csv', 'w', newline='', encoding='utf-8') as file:
