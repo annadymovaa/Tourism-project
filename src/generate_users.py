@@ -27,7 +27,7 @@ def users_data(n: int) -> list:
 def generate_users_table(n: int) -> None:
     users = users_data(n)
 
-    with open('data/users.csv', 'w', newline='', encoding='utf-8') as file:
+    with open('../data/users.csv', 'w', newline='', encoding='utf-8') as file:
         writer  = csv.DictWriter(file, fieldnames = users[0].keys())
         writer.writeheader()
         writer.writerows(users)
